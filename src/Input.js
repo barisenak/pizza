@@ -6,15 +6,14 @@ class Input extends Component {
     num: 0,
   };
 
-  func = () => {
-    const input = document.getElementById(`${this.props.id}`);
-    return input.checked ? this.props.counter() : this.props.minus();
+  func = (event) => {
+    return event.target.checked ? this.props.counter() : this.props.minus();
   };
 
   render() {
     return (
       <div>
-        <input type="checkbox" id={this.props.id} onClick={this.func} />
+        <input type="checkbox" onChange={(event) => this.func(event)} />
         <span>{this.props.text}</span>
       </div>
     );
